@@ -20,53 +20,43 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+@font-face {
+  font-family: 'Indie Flower';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Indie Flower'),
+       local('IndieFlower'),
+/*       url('indie-flower.eot') format('eot'),  */
+/*       url('indie-flower.eot?#iefix') format('embedded-opentype'),  */
+/*       url('indie-flower.ttf') format('ttf'),  */
+/*       url('indie-flower.otf') format('otf'),  */
+       url('indie-flower.woff') format('woff');
+/*       url('css/indie-flower.woff2') format('woff2') */
+/*       url('css/indie-flower.svg#UndercoverRegular') format('svg')  */
+}
+@font-face {
+  font-family: 'Molle';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Molle'),
+       local('Molle-Regular'),
+       url('molle.woff') format('woff');
+}
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
-    background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
+    background-color:#EEECE2;
+    background-image:none;
+    overflow: hidden;
+    font-family: 'Indie Flower', cursive;
+    font-size: 150%;
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
+    text-transform:none;
     width:100%;
-}
-
-/* Portrait layout (default) */
-.app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
-}
-
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
 }
 
 h1 {
@@ -77,6 +67,13 @@ h1 {
     padding:0px;
     text-align:center;
 }
+
+.logBox {
+    position: absolute;
+    top: 1%;
+    right: 0px;
+    text-align: right;
+    }
 
 .event {
     border-radius:4px;
@@ -113,3 +110,33 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+
+.main .header { height: 1.6em; text-align: center; font-weight: bold; }
+.main .diary  { position: absolute; overflow-y: auto; top:1.6em; bottom:0px; left:0px; right:0px;}
+
+.diary .list { color: #251357;
+    background-image: none;
+    margin: 0px;
+padding: 0px;
+width: 100%;
+height: 100%;
+position: inherit;
+float: left;
+text-align: left;}
+
+.itemList { background: #EEECE2 none repeat scroll 0% 0%;clear:left; height:1.7em; padding-left: 1%; padding-right: 1%; line-height:1.7em; border-bottom: 1px solid #BBBBBB;}
+.itemList .bullet { float: left; width: 1.4em; font-family: 'Molle', cursive; font-weight: bold; font-size: 60%; text-align: center; }
+
+.itemList .itemButtons { float:right; width: 0px; overflow: hidden; transition: width 0.4s ease 0s; }
+.itemList .itemButtons { word-break:keep-all;/*  Do not wrap   */
+                                    white-space:nowrap;/*  Do not wrap   */
+                                    overflow:hidden;/*  When the content exceeds the width of the content of the hidden beyond partial   */
+                                  text-overflow:ellipsis; }
+.itemList .itemButtons div { display:inline; float:left; padding: 0px 3px; line-height: 1.5em; margin: 0.3em 3px; font-family: sans-serif; font-size: 76%;  border: solid 1px #777; border-radius: 4px; cursor: pointer; }
+#newItem input { width: 100%; background: none; border: none; line-height: 1.5em;
+font-size: 1em; }
+
+.itemList .newTaskTypeToolbox {display: block; top: 115px; left: 25px; min-width: 20px; padding: 5px; border-radius: 6px; border: 1px solid rgb(119, 119, 119); box-shadow: 4px 4px 4px rgb(85, 85, 85); color: rgb(102, 102, 102); background-color: #FFF; opacity: 0.85; z-index: 32767; text-align: left; visibility: visible; position: absolute;}
+
+.bulletButton { float: left; width: 1.4em; font-family: 'Molle', cursive; font-weight: bold; font-size: 120%; text-align: center; cursor: pointer; }

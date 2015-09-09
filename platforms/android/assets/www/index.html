@@ -1,24 +1,7 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
+        <meta charset="utf-8" />
         <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
@@ -33,17 +16,90 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
+        <script type="text/javascript" src="js/date.js"></script>
+        <script type="text/javascript" src="js/dailylist.js"></script>
+        <title>Daily list app</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+
+    <div class="main">
+    <div class="logBox">
+        <div id="deviceready" class="blink">
+            <p class="event listening">Connecting to Device</p>
+            <p class="event received">Device is Ready</p>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+    </div>
+
+    <div class="header">- Ene. 2015 -</div>
+
+    <div class="diary">
+        <div id="background-list" class="list" style="position:absolute; z-index: -1;">
+            <div class="itemList"></div>  <div class="itemList"></div>  <div class="itemList"></div>
+            <div class="itemList"></div>  <div class="itemList"></div>  <div class="itemList"></div>
+            <div class="itemList"></div>  <div class="itemList"></div>  <div class="itemList"></div>
+        </div>  <!-- .list #background-list -->
+
+        <div id="list-2015-01-01" class="list currentDayList">
+            <div class="itemList day"><sub>D</sub>01/01</div>  <!-- .itemList .day -->
+            
+            <div id="item-1" class="itemList item">
+                <div class="bullet">&nbsp;</div>
+                <div class="bullet">&#x25CB;</div>
+                <div>This is an event</div>
+                <div id="itemButtons-1" class="itemButtons" style="width: 175px">
+                    <div id="btnUpdateItem-1">Change</div>
+                    <div id="btnDeleteItem-1">Remove</div>
+                    <div style="clear:right; display:none;"></div>
+                </div>
+            </div>  <!-- .itemList .item #item-1 -->
+
+            <div id="item-2" class="itemList item">
+                <div class="bullet">&nbsp;</div>
+                <div class="bullet">&#x2022;</div>
+                <div>This is a task</div>
+                <div id="itemButtons-2" class="itemButtons">
+                    <div id="btnUpdateItem-2">Change</div>
+                    <div id="btnDeleteItem-2">Remove</div>
+                    <div style="clear:right; display:none;"></div>
+                </div>
+            </div>  <!-- .itemList .item #item-3 -->
+
+            <div id="item-3" class="itemList item">
+                <div class="bullet">&nbsp;</div>
+                <div class="bullet">&#x2012;</div>
+                <div>And this is a thought</div>
+                <div id="itemButtons-3" class="itemButtons">
+                    <div id="btnUpdateItem-3">Change</div>
+                    <div id="btnDeleteItem-1">Remove</div>
+                    <div style="clear:right; display:none;"></div>
+                </div>
+            </div>  <!-- .itemList .item #item-1 -->
+
+            <div id="newItem" class="itemList new">
+                <div style="display:none;"></div>
+                <div id="newTaskModif" class="bullet">&nbsp;</div>
+                <div class="newTaskTypeToolbox" style="display: block;">
+                          <div class="bulletButton" name="event">&#x25CB;
+                    </div><div class="bulletButton" name="task">&#x2022;
+                    </div><div class="bulletButton" style="display:none;">&#x2039;
+                    </div><div class="bulletButton" style="display:none;">&#x203A;
+                    </div><div class="bulletButton" style="display:none;">&#x00D7;
+                    </div><div class="bulletButton" name="thought">&#x2012;
+                    </div>
+                </div>
+                <div id="newTaskType" class="bullet">&#x2022;</div>
+                <div style="overflow: hidden;">
+                    <input type="text" value="Write down a new note">
+                </div>
+            </div>  <!-- .itemList #newItem -->
+            
+        </div>  <!-- .list -->
+
+    </div>  <!-- .diary -->
+    </div>  <!-- .main -->
+
+    <script type="text/javascript" src="cordova.js"></script>
     </body>
 </html>
