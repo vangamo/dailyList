@@ -14,3 +14,6 @@ out
 /build
 # Android Studio
 .idea
+
+release-signing.properties
+assets
