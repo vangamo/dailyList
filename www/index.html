@@ -17,7 +17,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="js/date.js"></script>
         <script type="text/javascript" src="js/dailylist.js"></script>
         <title>Daily list app</title>
@@ -25,6 +25,21 @@
     <body>
 
     <div class="main">
+    <div class="menu" style="display:none; height:0em;">
+        <span class="menu-icon" style="">
+            <div class="bar1" style=""></div>
+            <div class="bar2-L" style=""></div>
+            <div class="bar2-R" style=""></div>
+            <div class="bar3" style=""></div>
+        </span>
+        <h1 style="">Daily list</h1>
+        <div class="background1" style="opacity:0.0; display:none;"></div>
+        <div class="panel" style="width:0px; display:none;">
+            <div class="lists">Lists</div>
+            <div style="margin-top:0.5em;">Settings</div>
+            <div style="margin-top:0.5em;">About</div>
+        </div>
+    </div>  <!-- .menu -->
     <div class="logBox">
         <div id="deviceready" class="blink">
             <p class="event listening">Connecting to Device</p>
@@ -35,66 +50,10 @@
     <div class="header">- Ene. 2015 -</div>
 
     <div class="diary">
-        <div id="background-list" class="list" style="position:absolute; z-index: -1;">
-            <div class="itemList"></div>  <div class="itemList"></div>  <div class="itemList"></div>
-            <div class="itemList"></div>  <div class="itemList"></div>  <div class="itemList"></div>
-            <div class="itemList"></div>  <div class="itemList"></div>  <div class="itemList"></div>
+        <div id="background-list" class="list" style="position:absolute; height: 100%; z-index: 0; overflow:hidden;">
+            <div class="itemList"></div>
         </div>  <!-- .list #background-list -->
 
-        <div id="list-2015-01-01" class="list currentDayList">
-            <div class="itemList day"><sub>D</sub>01/01</div>  <!-- .itemList .day -->
-            
-            <div id="item-1" class="itemList item">
-                <div class="bullet">&nbsp;</div>
-                <div class="bullet">&#x25CB;</div>
-                <div>This is an event</div>
-                <div id="itemButtons-1" class="itemButtons" style="width: 175px">
-                    <div id="btnUpdateItem-1">Change</div>
-                    <div id="btnDeleteItem-1">Remove</div>
-                    <div style="clear:right; display:none;"></div>
-                </div>
-            </div>  <!-- .itemList .item #item-1 -->
-
-            <div id="item-2" class="itemList item">
-                <div class="bullet">&nbsp;</div>
-                <div class="bullet">&#x2022;</div>
-                <div>This is a task</div>
-                <div id="itemButtons-2" class="itemButtons">
-                    <div id="btnUpdateItem-2">Change</div>
-                    <div id="btnDeleteItem-2">Remove</div>
-                    <div style="clear:right; display:none;"></div>
-                </div>
-            </div>  <!-- .itemList .item #item-3 -->
-
-            <div id="item-3" class="itemList item">
-                <div class="bullet">&nbsp;</div>
-                <div class="bullet">&#x2012;</div>
-                <div>And this is a thought</div>
-                <div id="itemButtons-3" class="itemButtons">
-                    <div id="btnUpdateItem-3">Change</div>
-                    <div id="btnDeleteItem-1">Remove</div>
-                    <div style="clear:right; display:none;"></div>
-                </div>
-            </div>  <!-- .itemList .item #item-1 -->
-
-            <div id="newItem" class="itemList new">
-                <div style="display:none;"></div>
-                <div id="newTaskModif" class="bullet">&nbsp;</div>
-                <div class="newTaskTypeToolbox" style="display: block;">
-                          <div class="bulletButton" name="event">&#x25CB;
-                    </div><div class="bulletButton" name="task">&#x2022;
-                    </div><div class="bulletButton" style="display:none;">&#x2039;
-                    </div><div class="bulletButton" style="display:none;">&#x203A;
-                    </div><div class="bulletButton" style="display:none;">&#x00D7;
-                    </div><div class="bulletButton" name="thought">&#x2012;
-                    </div>
-                </div>
-                <div id="newTaskType" class="bullet">&#x2022;</div>
-                <div style="overflow: hidden;">
-                    <input type="text" value="Write down a new note">
-                </div>
-            </div>  <!-- .itemList #newItem -->
-            
         </div>  <!-- .list -->
 
     </div>  <!-- .diary -->

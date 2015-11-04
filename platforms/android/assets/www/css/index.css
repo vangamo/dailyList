@@ -43,6 +43,7 @@
        url('molle.woff') format('woff');
 }
 
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -73,6 +74,10 @@ h1 {
     top: 1%;
     right: 0px;
     text-align: right;
+    }
+
+.ui-loader {
+    display: none;
     }
 
 .event {
@@ -111,32 +116,200 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
+input.default { color:#888; }
 
-.main .header { height: 1.6em; text-align: center; font-weight: bold; }
-.main .diary  { position: absolute; overflow-y: auto; top:1.6em; bottom:0px; left:0px; right:0px;}
+.main .header { position:fixed; top:0em; left:0em; right:0em; height: 1.6em; text-align: center; font-weight: bold; }
+.main .diary  { position: fixed; overflow-y: auto; top:0px; padding-top:1.6em; bottom:0px; left:0px; right:0px;}
+
+.main .header {  transition: top 0.4s; }
+.main .diary  { transition: top 0.4s; }
+
+.menu {
+    position: fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    height: 2.66em;
+    z-index:5;
+    overflow: hidden;
+    font-family: Sans;
+    background-color: #FFFFFF;
+    border-bottom: 4px solid #333333;
+    box-shadow: 0px 0px 1em -0.5em #000000;
+}
+.menu { transition: height 0.4s; }
+.menu h1 { font-weight:bold; padding:0.5em 1.5em 0em 0.5em; }
+.menu .panel {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+/*
+    min-width: 90px;
+    max-width: 50%;
+*/
+    background: #FFFFFF none repeat scroll 0% 0%;
+    z-index: 4;
+    padding: 1em 0.5em;
+    border-right: 3px solid rgb(0, 0, 0);
+    top: 2.66em;
+/*    box-shadow: 10px 10px 10px 10px #CCCCCC, 0px 0px; */
+    font-size: 100%;
+    }
+
+.menu .panel { transition: width 0.4s; }
+.menu .background { transition: opacity 0.4s linear; }
+
+.menu .background {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+/*    opacity: 0.6; */
+    background: #BBBBBB none repeat scroll 0% 0%;
+    z-index: 3;
+    top: 2.7em;
+    }
+
+.menu .menu-icon {
+    display: inline;
+    float: left;
+    padding: 0.75em 0px 0px 0.5em;
+}
+.menu .menu-icon div { background-color: #000; width: 0.8em; height: 0.2em; margin-bottom: 0.15em; }
+.menu .menu-icon .bar1 {
+    
+    }
+.menu .menu-icon .bar1.selected   { transform: rotate(90deg) translateX(0.5em) translateY(0.5em); }
+.menu .menu-icon .bar2-L {
+    float: left;
+    width: 0.4em; 
+}
+.menu .menu-icon .bar2-L.selected { transform: rotate(45deg) translateX(-0.15em) translateY(0.15em); }
+.menu .menu-icon .bar2-R {
+    float: right;
+    width: 0.4em;    
+}
+.menu .menu-icon .bar2-R.selected { transform: rotate(-45deg) translateX(-0.25em) translateY(-0.25em);}
+.menu .menu-icon .bar3 {
+    clear: left;
+    margin-bottom: 0px;
+}
+.menu .menu-icon .bar3.selected   { transform: rotate(90deg) translateX(-0.25em) translateY(0em); }
+
+.menu .menu-icon div { transition: transform 0.8s; }
+
 
 .diary .list { color: #251357;
     background-image: none;
     margin: 0px;
 padding: 0px;
 width: 100%;
-height: 100%;
-position: inherit;
+height: auto;
 float: left;
 text-align: left;}
 
-.itemList { background: #EEECE2 none repeat scroll 0% 0%;clear:left; height:1.7em; padding-left: 1%; padding-right: 1%; line-height:1.7em; border-bottom: 1px solid #BBBBBB;}
-.itemList .bullet { float: left; width: 1.4em; font-family: 'Molle', cursive; font-weight: bold; font-size: 60%; text-align: center; }
-
-.itemList .itemButtons { float:right; width: 0px; overflow: hidden; transition: width 0.4s ease 0s; }
+/*.itemList { background: #EEECE2 none repeat scroll 0% 0%; } */
+.itemList { clear:both; height:1.7em; padding-left: 1%; padding-right: 1%; line-height:1.66em; border-bottom: 1px solid #BBBBBB;}
+.itemList .bullet { float: left; width: 1.4em; font-family: 'Molle', italic; font-weight: bold; font-size: 60%; text-align: center; }
+/* .itemList .title { float:left; } */
+.itemList .title { display: inline; }
+.itemList .itemButtons { float:right; width: 0px; height: 1.7em; max-height: 1.7em; overflow: hidden; transition: width 0.4s ease 0s; }
 .itemList .itemButtons { word-break:keep-all;/*  Do not wrap   */
                                     white-space:nowrap;/*  Do not wrap   */
                                     overflow:hidden;/*  When the content exceeds the width of the content of the hidden beyond partial   */
                                   text-overflow:ellipsis; }
 .itemList .itemButtons div { display:inline; float:left; padding: 0px 3px; line-height: 1.5em; margin: 0.3em 3px; font-family: sans-serif; font-size: 76%;  border: solid 1px #777; border-radius: 4px; cursor: pointer; }
+
+#newItem { display:none; }
 #newItem input { width: 100%; background: none; border: none; line-height: 1.5em;
 font-size: 1em; }
 
-.itemList .newTaskTypeToolbox {display: block; top: 115px; left: 25px; min-width: 20px; padding: 5px; border-radius: 6px; border: 1px solid rgb(119, 119, 119); box-shadow: 4px 4px 4px rgb(85, 85, 85); color: rgb(102, 102, 102); background-color: #FFF; opacity: 0.85; z-index: 32767; text-align: left; visibility: visible; position: absolute;}
+.itemList .newTaskTypeToolbox {display: block; top: 115px; left: 25px; min-width: 20px; padding: 0px 5px; border-radius: 6px; border: 1px solid rgb(119, 119, 119); box-shadow: 4px 4px 4px rgb(85, 85, 85); color: rgb(102, 102, 102); background-color: #FFF; opacity: 0.85; z-index: 32767; text-align: left; visibility: visible; position: absolute;}
 
-.bulletButton { float: left; width: 1.4em; font-family: 'Molle', cursive; font-weight: bold; font-size: 120%; text-align: center; cursor: pointer; }
+.bulletButton { float: left; width: 1.4em; font-family: 'Molle', italic; font-weight: bold; font-size: 120%; text-align: center; cursor: pointer; }
+
+
+
+.editingItem {
+left: 0px;
+right: 0px;
+border: medium none;
+background-color: #EEECE2;
+z-index:2;}
+
+.editingItem .toolbar {
+    position: fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    height: 1.66em;  /* +0.5+0.5 padding */
+    padding: 0.5em;
+    z-index:5;
+    overflow: hidden;
+    font-family: Sans;
+    background-color: #FFFFFF;
+    border-bottom: 4px solid #333333;
+    box-shadow: 0px 0px 1em -0.5em #000000;
+}
+.editingItem .toolbar { transition: height 0.4s; }
+.editingItem .toolbar h2 { font-weight:bold; padding:0.5em 1.5em 0em 0.5em; }
+.editingItem .toolbar .button {
+    width: 1.25em;
+    height: 1.25em;
+    background-size: 1.25em;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    }
+.editingItem .toolbar .button[name="back"]        { background-image: url("ic_backward_black_48dp.png");     float:left; margin-right:1em; }
+.editingItem .toolbar .button[name="delete"]      { background-image: url("ic_delete_black_48dp.png");       float:right; margin-left:1em; }
+.editingItem .toolbar .button[name="done"]        { background-image: url("ic_done_black_48dp.png");         float:right; margin-left:1em; }
+.editingItem .toolbar .button[name="fastForward"] { background-image: url("ic_fast_forward_black_48dp.png"); float:right; margin-left:1em; }
+
+.editingItem .bulletList .bulletIcon {
+    font-family: 'Molle', italic;
+    display:inline-block; float:right; margin-left:0.8em; margin-right:0em; border:solid 2px #251357; opacity:0.7; border-radius:5px; color:#EEECE2; color:#251357; width: 1.66em; width:2.2em; text-align: center; cursor: pointer;}
+.editingItem .bulletList .bulletIcon {
+    transition: transform 0.8s, border-color 0.4s, opacity 0.4s;
+    }
+
+.editingItem .bulletList .bulletCaption {
+    font-family: 'Indie Flower', cursive;
+    font-size: 50%;
+margin: -0.7em 0px 0px 0px;
+height: auto;
+border: medium none;
+line-height: 1em;
+padding: 3px;
+width: 90%;
+text-align: center;}
+
+.editingItem .bulletList .selected {
+    float:left; margin-left:0em; margin-right:0.8em; border:none; }
+
+.editingItem input { width: 100%; background: none; border: none; line-height: 1.5em;
+font-size: 1em; }
+
+.editingItem .categoryList.active .category {
+    font-family: sans;
+    font-size: 70%;
+    color: white;
+    background-color: #251357;
+    padding: 4px;
+    border-radius: 8px;
+    }
+
+.editingItem .categoryList .button {
+    width: 1em;
+    height: 1em;
+    background-size: 1em;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    }
+.editingItem .categoryList .button[name="delete"]        { background-image: url("ic_backspace_white_48dp.png");     margin-left:4px }
+
+.itemList { -moz-transition: top 0.4s ease 0.4s, height 0.4s ease; transition: top 0.4s ease 0.4s, height 0.4s ease; }
+
+.diary .list {
+    -moz-transition: transform 0.4s ease 0s;
+         transition: transform 0.4s ease 0s;    
+    }
