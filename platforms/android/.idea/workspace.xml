@@ -48,7 +48,7 @@
         </entry>
       </file>
       <file leaf-file-name="MyListActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/vangamo/dailylist/MyListActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/com/vangamo/dailylistflawless/MyListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -1287,7 +1287,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/res/layout/activity_list.xml" />
-        <option value="$PROJECT_DIR$/src/com/vangamo/dailylist/MyListActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/vangamo/dailylistflawless/MyListActivity.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
       </list>
     </option>
@@ -1502,7 +1502,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dailylist" />
+              <option name="myItemId" value="dailylistflawless" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1803,7 +1803,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vangamo/dailylist/MyListActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/vangamo/dailylistflawless/MyListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -1832,7 +1832,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vangamo/dailylist/MyListActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/vangamo/dailylistflawless/MyListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
@@ -1861,7 +1861,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vangamo/dailylist/MyListActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/vangamo/dailylistflawless/MyListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />

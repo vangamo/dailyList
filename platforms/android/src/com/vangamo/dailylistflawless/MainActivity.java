@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.vangamo.dailylist;
+package com.vangamo.dailylistflawless;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

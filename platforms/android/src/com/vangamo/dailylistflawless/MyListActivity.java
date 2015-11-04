@@ -1,4 +1,4 @@
-package com.vangamo.dailylist;
+package com.vangamo.dailylistflawless;
 
 import android.app.ListActivity;
 import android.content.Intent;
