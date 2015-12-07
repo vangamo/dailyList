@@ -119,7 +119,7 @@ h1 {
 input.default { color:#888; }
 
 .main .header { position:fixed; top:0em; left:0em; right:0em; height: 1.6em; text-align: center; font-weight: bold; }
-.main .diary  { position: fixed; overflow-y: auto; top:0px; padding-top:1.6em; bottom:0px; left:0px; right:0px;}
+.main .diary  { position: fixed; overflow-y: auto; top:1.6em; bottom:0px; left:0px; right:0px;}
 
 .main .header {  transition: top 0.4s; }
 .main .diary  { transition: top 0.4s; }

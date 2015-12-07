@@ -2026,7 +2026,7 @@ DailyListApp.Menu = {
 
 		$('.menu').show().css('height', '2.66em');
 		$('.header').css('top', '2.66em');
-		$('.diary').css('padding-top', (2.66+1.66)+'em');
+		$('.diary').css('top', (2.66+1.66)+'em');
 
 		}    //  END method DailyListApp.Menu.showAppTitle()
 
