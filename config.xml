@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.vangamo.dailylist" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.vangamo.dailylist" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Daily List</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Simple and beautiful apk to write down notes and througts.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="vangamo.beta@gmail.com" href="http://vangamo.xyz/">
+        vanGamo
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
