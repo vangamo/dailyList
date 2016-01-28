@@ -151,6 +151,9 @@ input.default { color:#888; }
     top: 2.66em;
 /*    box-shadow: 10px 10px 10px 10px #CCCCCC, 0px 0px; */
     font-size: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-overflow:elipsis;
     }
 
 .menu .panel { transition: width 0.4s; }
