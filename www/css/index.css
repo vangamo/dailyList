@@ -181,17 +181,17 @@ input.default { color:#888; }
     float: left;
     width: 0.4em; 
 }
-.menu .menu-icon .bar2-L.selected { transform: rotate(45deg) translateX(-0.15em) translateY(0.15em); }
+.menu .menu-icon .bar2-L.selected { transform: translateX(-0.13em) translateY(-0.03em) rotate(45deg); }
 .menu .menu-icon .bar2-R {
     float: right;
     width: 0.4em;    
 }
-.menu .menu-icon .bar2-R.selected { transform: rotate(-45deg) translateX(-0.25em) translateY(-0.25em);}
+.menu .menu-icon .bar2-R.selected { transform: translateX(-0.37em) translateY(-0.03em) rotate(-45deg); }
 .menu .menu-icon .bar3 {
     clear: left;
     margin-bottom: 0px;
 }
-.menu .menu-icon .bar3.selected   { transform: rotate(90deg) translateX(-0.25em) translateY(0em); }
+.menu .menu-icon .bar3.selected   { transform: rotate(90deg) translateX(-0.20em) translateY(0em); }
 
 .menu .menu-icon div { transition: transform 0.8s; }
 
