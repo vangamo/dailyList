@@ -2067,6 +2067,82 @@ DailyListApp.Menu = {
 		$('.menu .panel > div').get(1).innerHTML = L('Menu.Settings');
 		$('.menu .panel > div').get(2).innerHTML = L('Menu.About');
 
+		$( $('.menu .panel > div').get(1) )
+			.append(
+				$('<div style="font-size:80%;margin-left:1em;cursor:pointer;">'+'Import'+'</div>')
+						.on('click', function() {
+							DailyListApp.Menu.hideAppTitle();
+
+			                $('textarea.ical')
+			                    .val('Paste here iCal content')
+			                    .css('width','300px')
+			                    .css('width','-webkit-fill-available')
+			                    .css('width','fill-available')
+			                    .css('width','-moz-available')
+			                    .css('height', '100px');
+
+							$('.diary').append(
+							        $('<button></button>')
+							            .attr('value', 'ICAL')
+							            .css('position', 'fixed')
+							            .css('right', '30px')
+							            .css('bottom', '20px')
+							            .css('z-index', '10')
+							            .css('width', '50px')
+							            .css('height', '40px')
+							            .css('background', '#EA1500')
+							            .css('border', 'none')
+							            .css('border-radius', '40px')
+							            .css('color', 'white')
+							            .css('cursor', 'pointer')
+							            .text('ICal')
+							            .on('click', function() {
+							            	var icalString = $('textarea.ical').val();
+							            	if( '' != icalString.trim() ) {
+				                    			setTimeout(function() {
+													var jsonString = fromICAL( icalString );
+				                    				$('textarea.ical').val( jsonString ).select();
+				                    				}, 50);
+												$('textarea.ical').val('Processing...');
+												}
+											else {
+												$('textarea.ical')
+													.css('width', '0')
+													.css('height', '0px');
+												}
+
+			                    			$(this).remove();
+							            	})
+							        );
+
+							})
+				)
+			.append(
+				$('<div style="font-size:80%;margin-left:1em;cursor:pointer;">'+'Export'+'</div>')
+						.on('click', function() {
+							DailyListApp.Menu.hideAppTitle();
+
+							setTimeout(function() {
+			                    var icalString = toICAL();
+			                    $('textarea.ical').val( icalString ).select();
+
+			                    }, 50 );
+
+
+
+			                $('textarea.ical')
+			                    .val('')
+			                    .css('width','300px')
+			                    .css('width','-webkit-fill-available')
+			                    .css('width','fill-available')
+			                    .css('width','-moz-available')
+			                    .css('height', '100px');
+
+
+			                return false;
+							})
+				);
+
 		}    //  END method DailyListApp.Menu.showMenu()
 
 	,"hideAppTitle": function() {
