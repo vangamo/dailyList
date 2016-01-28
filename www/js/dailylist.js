@@ -387,7 +387,6 @@ Note.registerNoteType(
 
 
 
-
 var Provider = {
 	 "queryCache": []    //  [ { "cond": func(), "array": NoteArray, "accessTime": 1440000000, "refreshTime": 14400000 }, { .. }, ... ]
 
@@ -642,7 +641,6 @@ console.log('Show '+ this.id);
 			this.dom.css({
 					 "transform-origin": "0% 0% 0px"
 					,"transform": "rotateY(0deg) skewY(0deg)"
-//					,"background-color": "transparent"
 				});
 
 			var thisObj = this;
@@ -745,13 +743,11 @@ console.log('Show '+ this.id);
 					,"transform": transformValue
 					,"position": "fixed"
 					,"top": "0px"
-					,"padding-top": "1.6em"
 					,"z-index": "4"
 					,"background": "#EEECE2"
 					,"border-right": "2px solid #555"
 					,"border-bottom": "2px solid #333"
 					,"box-shadow": "90px -90px 180px #A5A0A0"
-					,"height": $(".diary").height()+"px"
 					});
 				transformDom.prepend( $('.header').clone() );
 
@@ -763,13 +759,11 @@ console.log('Show '+ this.id);
 						,"transform": "rotateY(0deg) skewY(0deg)"
 						,"position": ""
 						,"top": ""
-						,"padding-top": ""
 						,"z-index": ""
 						,"background": "transparent"
 						,"border-right": ""
 						,"border-bottom": ""
 						,"box-shadow": ""
-						,"height": ""
 						});
 					domObj.siblings('.currentDayList').hide().removeClass('currentDayList');
 					domObj.addClass('currentDayList').show();
@@ -1913,7 +1907,7 @@ DailyListApp.DiaryView = {
 				$('#newItem input').blur();
 				}
 			else {
-				$('#newItem').remove();
+				$('#newItem').replaceWith( $('<div></div>').addClass('itemList').addClass('itemBackground') );
 				}
 			}
 		else {
@@ -2025,8 +2019,8 @@ DailyListApp.Menu = {
 		if( this.isShownAppTitle() ) { return; }
 
 		$('.menu').show().css('height', '2.66em');
-		$('.header').css('top', '2.66em');
-		$('.diary').css('top', (2.66+1.66)+'em');
+//		$('.header').css('top', '2.66em');
+//		$('.diary').css('top', (2.66+1.66)+'em');
 
 		}    //  END method DailyListApp.Menu.showAppTitle()
 
@@ -2081,8 +2075,8 @@ DailyListApp.Menu = {
 
 
 		$('.menu').css('height', '0em');
-		$('.header').css('top', '0em');
-		$('.diary').css('top', (1.66)+'em');
+		//$('.header').css('top', '0em');
+		//$('.diary').css('top', (1.66)+'em');
 		setTimeout(function() {
 			$('.menu').hide();
 			},410);
@@ -2119,7 +2113,7 @@ DailyListApp.persistence = {
 	 "createNote": function( currentDay ) {
 		// Read values
 		var values = {
-			 "type":        "task"
+			 "type":        "task"  // event - task - thought - spending
 			,"app":         "DailyListBeta"
 			,"title":       ""
 			,"time":        ""
@@ -2155,7 +2149,7 @@ console.log(list);
 
 			}
 
-		$('#newItem').remove();
+		$('#newItem').replaceWith( $('<div></div>').addClass('itemList').addClass('itemBackground') );
 		DailyListApp.DiaryView.currentPage.adjustBackground();
 		}
 
@@ -2167,7 +2161,7 @@ console.log(list);
 		}
 
 	,"getNotesByDay": function( dateDay ) {
-		var day = datDay.clone();
+		var day = dateDay.clone();
 			day.set({"hour": 0, "minute": 0, "second": 0});
 
 		var timestampFrom = day.getTime();
