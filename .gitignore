@@ -26,5 +26,10 @@ proguard/
 # Log Files
 *.log
 
+platforms/android/assets/
+platforms/android/res/
 icon_resize.sh
 icon.png
+*sublime-project
+*sublime-workspace
+.tags
