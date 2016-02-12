@@ -19,7 +19,7 @@
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.vangamo.dailylist"
+            "PACKAGE_NAME": "com.vangamo.dailylistsimple"
         }
     },
     "dependent_plugins": {}

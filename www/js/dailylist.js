@@ -1913,10 +1913,15 @@ console.log( 'Lang:' + lang ); // es-ES
     // function, we must explicitly call 'app.receivedEvent(...);'
   ,"onDeviceReady": function() {
       DailyListApp.receivedEvent( 'deviceready' );
-      navigator.globalization.getPreferredLanguage(
-        function( language ) {
-          DailyListApp.setLanguage( language.value ); // es-ES
-          } );
+      if( navigator.globalization ) {
+          navigator.globalization.getPreferredLanguage(
+          function( language ) {
+            DailyListApp.setLanguage( language.value ); // es-ES
+            } );
+        }
+      else if( navigator.languages ) {
+        DailyListApp.setLanguage( navigator.languages[0] ); // es-ES
+        }
 
       }
     // Update DOM on a Received Event
@@ -2173,7 +2178,6 @@ DailyListApp.DiaryView = {
 
       if( 0 === newItemDOM.length ) {
         if( 0 === pageDOM.length ) {
-          this.renderDailyList();
           pageDOM = $( '.currentDayList' );
           }
 
@@ -2370,8 +2374,8 @@ DailyListApp.DiaryView = {
 
         // Re-paint
 
-        this.renderDailyList();
-        this.showDailyList();
+        // DailyListApp.DiaryView.showCurrentDay();
+        this.showCurrentDay();
         }
 
       } //  END method DailyListApp.DiaryView.updateI18N()
